@@ -1,2 +1,0 @@
-guru/qa/StudentRegistrationFormTest.java
- guru.qa.StudentRegistrationFormTest
