@@ -2,7 +2,9 @@ package guru.qa;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.CredentialsConfig;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -19,6 +21,8 @@ public class TestBase {
         Configuration.baseUrl = System.getProperty("baseurl");
         Configuration.browserSize = System.getProperty("browser");
         Configuration.browserSize = System.getProperty("browsersize");
+
+        CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
         Configuration.remote = "https://"+ config.login() + ":" + config.password() + "@" + System.getProperty("remote");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
